@@ -1,5 +1,5 @@
 class Stax < Formula
-  desc "Stax Dart CLI application"
+  desc "Stax cli application"
   homepage "https://github.com/TarasMazepa/stax"
  
   on_macos do
@@ -22,6 +22,6 @@ class Stax < Formula
   end
 
   test do
-    system "#{bin}/stax", "--version"
+    system "#{bin}/stax", "help"
   end
 end

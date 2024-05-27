@@ -1,7 +1,7 @@
 class Stax < Formula
-  desc "Stax cli application"
+  desc "Wrapper around git, which helps with stax-like git workflow"
   homepage "https://github.com/TarasMazepa/stax"
- 
+
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/TarasMazepa/stax/releases/download/0.0.0.2/macos-13_.tar.gz"

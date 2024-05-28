@@ -12,10 +12,11 @@ class Stax < Formula
   def install
     ENV.prepend_path "PATH", Formula["dart"].opt_bin
 
-    system "dart", "pub", "get"
-    system "dart", "compile", "exe", "bin/stax.dart", "-o", "stax"
-   
-    bin.install "stax"
+    cd "cli" do
+      system "dart", "pub", "get"
+      system "dart", "compile", "exe", "bin/stax.dart", "-o", "stax"
+      bin.install "stax"
+    end
   end
 
   test do

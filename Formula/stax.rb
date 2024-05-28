@@ -7,7 +7,7 @@ class Stax < Formula
   version "1.0.0"
   head "https://github.com/TarasMazepa/stax.git", using: :git
   
-  depends_on "dart" => :build
+  depends_on "dart-lang/dart/dart" => :build
 
   def install
     ENV.prepend_path "PATH", Formula["dart"].opt_bin

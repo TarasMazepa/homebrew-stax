@@ -2,9 +2,21 @@
 
 ## How do I install these formulae?
 
-`brew install tarasmazepa/stax/<formula>`
+```
+brew install tarasmazepa/stax/stax
+```
 
-Or `brew tap tarasmazepa/stax` and then `brew install <formula>`.
+Or 
+
+```
+brew tap tarasmazepa/stax
+```
+
+and then 
+
+```
+brew install stax
+```
 
 Or, in a [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) `Brewfile`:
 

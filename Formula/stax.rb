@@ -5,9 +5,9 @@ class Stax < Formula
       using: :git,
       branch: "main"
   version "0.6.2"
-  head "https://github.com/TarasMazepa/stax.git", 
-      using: :git
-  
+  head "https://github.com/TarasMazepa/stax.git",
+       using: :git
+
   depends_on "dart-lang/dart/dart" => :build
 
   def install

@@ -4,7 +4,7 @@ class Stax < Formula
   url "https://github.com/TarasMazepa/stax.git",
       using:  :git,
       branch: "main"
-  version "0.6.8"
+  version "0.6.9"
   head "https://github.com/TarasMazepa/stax.git", using: :git
 
   depends_on "dart-lang/dart/dart" => :build

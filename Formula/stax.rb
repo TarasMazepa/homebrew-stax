@@ -1,6 +1,6 @@
 class Stax < Formula
   desc "Wrapper around git, which helps with stax-like git workflow"
-  homepage "https://github.com/TarasMazepa/stax"
+  homepage "https://staxforgit.com/"
   url "https://github.com/TarasMazepa/stax.git",
       using:  :git,
       branch: "main"

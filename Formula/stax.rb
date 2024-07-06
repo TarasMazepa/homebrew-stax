@@ -14,7 +14,7 @@ class Stax < Formula
 
     cd "cli" do
       system "dart", "pub", "get"
-      system "dart", "compile", "exe", "bin/cli.dart", "-o", "stax"
+      system "dart", "compile", "exe", "bin/cli.dart", "-o", "stax", "-Dversion=#{version}"
       bin.install "stax"
     end
   end

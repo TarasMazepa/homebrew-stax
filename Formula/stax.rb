@@ -5,7 +5,7 @@ class Stax < Formula
       using:  :git,
       branch: "main"
   version "0.7.1"
-  url "https://github.com/TarasMazepa/stax.git", tag: version
+  url "https://github.com/TarasMazepa/stax.git", tag: "${version}"
 
   depends_on "dart-lang/dart/dart" => :build
 

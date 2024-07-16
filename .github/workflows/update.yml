@@ -5,6 +5,9 @@ on:
         required: true
         type: string
 
+env:
+  TAG: ${{ inputs.tag }}
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -12,6 +15,11 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           sed -i "s/tag: .*/tag: $TAG/" ./Formula/stax.rb
-        env:
-          TAG: ${{ inputs.tag }}
-        
+      - run: |
+          git checkout -b update-stax-to-$TAG
+      - run: |
+          git commit -a -m "Update stax to $TAG"
+      - run: |
+          git push origin
+      - run: |
+          gh pr create -B update-stax-to-$TAG -H main

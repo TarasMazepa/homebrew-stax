@@ -16,9 +16,13 @@ jobs:
       - run: |
           sed -i "s/tag: .*/tag: $TAG/" ./Formula/stax.rb
       - run: |
+          git config --global user.name 'stax'
+      - run: |
+          git config --global user.email 'stax@staxforgit.com'
+      - run: |
           git checkout -b update-stax-to-$TAG
       - run: |
-          git commit -a -m "Update stax to $TAG" --author="stax <stax@staxforgit.com>"
+          git commit -a -m "Update stax to $TAG"
       - run: |
           git push origin
       - run: |

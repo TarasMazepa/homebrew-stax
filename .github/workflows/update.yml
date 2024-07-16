@@ -32,6 +32,6 @@ jobs:
             const result = await github.rest.pulls.create({
               owner,
               repo,
-              head: "update-stax-to-$TAG",
+              head: "update-stax-to-${{ inputs.tag }}",
               base: 'main',
             });

@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          sed -i "s/tag: .*/tag: $TAG/" ./Formula/stax.rb
+          sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb
       - run: |
           git config --global user.name 'stax'
       - run: |

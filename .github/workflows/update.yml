@@ -30,6 +30,7 @@ jobs:
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
+              title: "Update stax to ${{ inputs.tag }}"
               owner,
               repo,
               head: "update-stax-to-${{ inputs.tag }}",

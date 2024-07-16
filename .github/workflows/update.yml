@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        required: true
+        type: string
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Tag: $TAG"
+        env:
+          TAG: ${{ inputs.tag }}

@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $(ls)
+          ls
       - run: |
-          echo $(pwd)
+          pwd
       - run: |
           sed "s/tag: .*/tag: $TAG/" Formula/stax.rb
         env:

@@ -15,17 +15,11 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb
-      - run: |
           git config --global user.name 'stax'
-      - run: |
           git config --global user.email 'stax@staxforgit.com'
-      - run: |
           git checkout -b update-stax-to-$TAG
-      - run: |
           git commit -a -m "Update stax to $TAG"
-      - run: |
           git push --set-upstream origin update-stax-to-$TAG
-      - run: |
           gh pr merge $(gh pr create -B main -f) --auto --squash
         env:
           GH_TOKEN: ${{ github.token }}

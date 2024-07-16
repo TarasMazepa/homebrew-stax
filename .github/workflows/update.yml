@@ -25,5 +25,13 @@ jobs:
           git commit -a -m "Update stax to $TAG"
       - run: |
           git push --set-upstream origin update-stax-to-$TAG
-      - run: |
-          gh pr create -B update-stax-to-$TAG -H main
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const { repo, owner } = context.repo;
+            const result = await github.rest.pulls.create({
+              owner,
+              repo,
+              head: "update-stax-to-$TAG",
+              base: 'main',
+            });

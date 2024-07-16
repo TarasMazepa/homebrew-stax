@@ -3,7 +3,7 @@ class Stax < Formula
   homepage "https://staxforgit.com/"
   tag="0.7.4"
   url "https://github.com/TarasMazepa/stax.git", tag: tag.to_s
-  version tag.to_s
+  version " #{tag} ".strip!
 
   depends_on "dart-lang/dart/dart" => :build
 

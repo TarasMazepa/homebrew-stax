@@ -6,8 +6,6 @@ class Stax < Formula
   depends_on "dart-lang/dart/dart" => :build
 
   def install
-    ENV.prepend_path "PATH", Formula["dart"].opt_bin
-
     cd "cli" do
       system "dart", "pub", "get"
       system "dart", "compile", "exe", "bin/cli.dart", "-o", "stax", "-Dversion=#{version}"

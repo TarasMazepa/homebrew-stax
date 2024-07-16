@@ -26,17 +26,6 @@ jobs:
       - run: |
           git push --set-upstream origin update-stax-to-$TAG
       - run: |
-          gh pr create -B main -f
+          gh pr merge $(gh pr create -B main -f) --auto
         env:
           GH_TOKEN: ${{ github.token }}
-      # - uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       const { repo, owner } = context.repo;
-      #       const result = await github.rest.pulls.create({
-      #         owner,
-      #         repo,
-      #         title: "Update stax to ${{ inputs.tag }}",
-      #         head: "update-stax-to-${{ inputs.tag }}",
-      #         base: 'main',
-      #       });

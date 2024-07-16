@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          echo $(ls)
+      - run: |
+          echo $(pwd)
+      - run: |
           sed "s/tag: .*/tag: $TAG/" Formula/stax.rb
         env:
           TAG: ${{ inputs.tag }}

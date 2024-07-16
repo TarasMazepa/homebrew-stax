@@ -18,7 +18,7 @@ jobs:
       - run: |
           git checkout -b update-stax-to-$TAG
       - run: |
-          git commit -a -m "Update stax to $TAG"
+          git commit -a -m "Update stax to $TAG" --author="stax <stax@staxforgit.com>"
       - run: |
           git push origin
       - run: |

@@ -9,7 +9,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Echo!"
+      - run: echo "Echo! $TAG"
         env:
           TAG: ${{ inputs.tag }}
         

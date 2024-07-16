@@ -9,12 +9,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: |
-          ls -a
-      - run: |
-          pwd
-      - run: |
-          sed "s/tag: .*/tag: $TAG/" ./Formula/stax.rb
+          sed -i "s/tag: .*/tag: $TAG/" ./Formula/stax.rb
         env:
           TAG: ${{ inputs.tag }}
         

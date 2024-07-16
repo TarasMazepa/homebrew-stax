@@ -9,7 +9,8 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - run: sed "s/tag: .*/tag: $TAG/" Formula/stax.rb
+      - run: |
+          sed "s/tag: .*/tag: $TAG/" Formula/stax.rb
         env:
           TAG: ${{ inputs.tag }}
         

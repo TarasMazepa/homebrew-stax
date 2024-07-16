@@ -24,6 +24,6 @@ jobs:
       - run: |
           git commit -a -m "Update stax to $TAG"
       - run: |
-          git push origin
+          git push origin/update-stax-to-$TAG
       - run: |
           gh pr create -B update-stax-to-$TAG -H main

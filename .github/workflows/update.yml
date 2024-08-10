@@ -2,11 +2,15 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        required: true
+        required: false
+        type: string
+      dart_sdk_version:
+        required: false
         type: string
 
 env:
   TAG: ${{ inputs.tag }}
+  DART_SDK_VERSION: ${{ inputs.dart_sdk_version }}
 
 jobs:
   update:

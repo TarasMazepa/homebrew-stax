@@ -1,7 +1,7 @@
 class Stax < Formula
   desc "Wrapper around git, which helps with stax-like git workflow"
   homepage "https://staxforgit.com/"
-  url "https://github.com/TarasMazepa/stax.git", tag: '0.9.2'
+  url "https://github.com/TarasMazepa/stax.git", tag: '0.9.3'
 
   depends_on 'dart-lang/dart/dart@3.2.6' => :build
 

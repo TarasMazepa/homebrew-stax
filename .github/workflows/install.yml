@@ -1,0 +1,13 @@
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, macos-13]
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - run: brew install TarasMazepa/stax/stax

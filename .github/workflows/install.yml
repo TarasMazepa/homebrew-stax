@@ -10,4 +10,6 @@ jobs:
         os: [ubuntu-latest, macos-latest, macos-13]
     steps:
       - uses: Homebrew/actions/setup-homebrew@master
-      - run: brew install TarasMazepa/stax/stax
+      - run: |
+          brew install TarasMazepa/stax/stax
+          stax doctor

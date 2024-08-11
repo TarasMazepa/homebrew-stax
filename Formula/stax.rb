@@ -3,7 +3,7 @@ class Stax < Formula
   homepage "https://staxforgit.com/"
   url "https://github.com/TarasMazepa/stax.git", tag: '0.9.3'
 
-  depends_on 'dart-lang/dart/dart@3.2.6' => :build
+  depends_on 'dart-lang/dart/dart@3.4.4' => :build
 
   def install
     cd "cli" do

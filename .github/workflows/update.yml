@@ -23,6 +23,7 @@ jobs:
           git config --global user.email 'stax@staxforgit.com'
       - if: "${{ github.event.inputs.dart_sdk_version != '' }}"
         run: |
+          brew info dart@$DART_SDK_VERSION
           sed -i "s/'dart@.*'/'dart@$DART_SDK_VERSION'/" ./Formula/stax.rb
           git checkout -b update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
           git commit -a -m "Update dart sdk version for stax to $DART_SDK_VERSION"

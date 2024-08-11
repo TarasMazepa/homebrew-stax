@@ -11,6 +11,7 @@ on:
 env:
   TAG: ${{ inputs.tag }}
   DART_SDK_VERSION: ${{ inputs.dart_sdk_version }}
+  GH_TOKEN: ${{ github.token }}
 
 jobs:
   update:
@@ -18,12 +19,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb
           git config --global user.name 'stax'
           git config --global user.email 'stax@staxforgit.com'
+      - if: "${{ github.event.inputs.dart_sdk_version != '' }}"
+        run: |
+          sed -i "s/'dart@.*'/'dart@$DART_SDK_VERSION'/" ./Formula/stax.rb
+          git checkout -b update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
+          git commit -a -m "Update dart sdk version for stax to $DART_SDK_VERSION"
+          git push --set-upstream origin update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
+          gh pr merge $(gh pr create -B main -f) --auto --squash
+          git checkout HEAD~
+      - if: "${{ github.event.inputs.tag != '' }}"
+        run: |
+          sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb
           git checkout -b update-stax-to-$TAG
           git commit -a -m "Update stax to $TAG"
           git push --set-upstream origin update-stax-to-$TAG
           gh pr merge $(gh pr create -B main -f) --auto --squash
-        env:
-          GH_TOKEN: ${{ github.token }}
+          git checkout HEAD~

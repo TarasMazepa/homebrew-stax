@@ -11,7 +11,6 @@ on:
 env:
   TAG: ${{ inputs.tag }}
   DART_SDK_VERSION: ${{ inputs.dart_sdk_version }}
-  GH_TOKEN: ${{ github.token }}
 
 jobs:
   update:
@@ -33,6 +32,8 @@ jobs:
           git push --set-upstream origin update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
           gh pr merge $(gh pr create -B main -f) --auto --squash
           git checkout HEAD~
+        env:
+          GH_TOKEN: ${{ github.token }}
       - if: "${{ github.event.inputs.tag != '' }}"
         run: |
           sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb
@@ -41,3 +42,5 @@ jobs:
           git push --set-upstream origin update-stax-to-$TAG
           gh pr merge $(gh pr create -B main -f) --auto --squash
           git checkout HEAD~
+        env:
+          GH_TOKEN: ${{ github.token }}

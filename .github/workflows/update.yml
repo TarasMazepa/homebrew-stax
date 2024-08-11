@@ -25,6 +25,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
       - if: "${{ github.event.inputs.dart_sdk_version != '' }}"
         run: |
+          brew tap dart-lang/dart
           brew info dart-lang/dart/dart@$DART_SDK_VERSION
           sed -i "s/'dart@.*'/'dart@$DART_SDK_VERSION'/" ./Formula/stax.rb
           git checkout -b update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION

@@ -27,7 +27,7 @@ jobs:
         run: |
           brew tap dart-lang/dart
           brew info dart-lang/dart/dart@$DART_SDK_VERSION
-          sed -i "s/'dart-lang/dart/dart@.*'/'dart-lang/dart/dart@$DART_SDK_VERSION'/" ./Formula/stax.rb
+          sed -i "s+'dart-lang/dart/dart@.*'+'dart-lang/dart/dart@$DART_SDK_VERSION'+" ./Formula/stax.rb
           git checkout -b update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
           git commit -a -m "Update dart sdk version for stax to $DART_SDK_VERSION"
           git push --set-upstream origin update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION

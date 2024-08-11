@@ -1,5 +1,5 @@
 class Stax < Formula
-  desc "Wrapper around git, which helps with stax-like git workflow"
+  desc "Stack your PRs with stax"
   homepage "https://staxforgit.com/"
   url "https://github.com/TarasMazepa/stax.git", tag: '0.9.3'
 

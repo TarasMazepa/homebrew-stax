@@ -22,6 +22,8 @@ jobs:
           git config --global user.name 'stax'
           git config --global user.email 'stax@staxforgit.com'
       - if: "${{ github.event.inputs.dart_sdk_version != '' }}"
+        uses: Homebrew/actions/setup-homebrew@master
+      - if: "${{ github.event.inputs.dart_sdk_version != '' }}"
         run: |
           brew info dart@$DART_SDK_VERSION
           sed -i "s/'dart@.*'/'dart@$DART_SDK_VERSION'/" ./Formula/stax.rb

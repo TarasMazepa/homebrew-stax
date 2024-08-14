@@ -1,7 +1,7 @@
 class Stax < Formula
   desc "Stack your PRs with stax"
   homepage "https://staxforgit.com/"
-  url "https://github.com/TarasMazepa/stax.git", tag: '0.9.5'
+  url "https://github.com/TarasMazepa/stax.git", tag: '0.9.6'
 
   depends_on 'dart-lang/dart/dart@3.4.4' => :build
 

@@ -44,9 +44,9 @@ jobs:
             checksum=$(curl -sL https://github.com/TarasMazepa/stax/releases/download/$TAG/$1.zip  | sha256sum | sed 's/  -//')
             sed -i "s+sha256.*$1+sha256 '$checksum' # $1+" ./Formula/stax.rb
           }
-          update_checksum("macos-x64")
-          update_checksum("macos-arm")
-          update_checksum("linux-x64")
+          update_checksum "macos-x64"
+          update_checksum "macos-arm"
+          update_checksum "linux-x64"
           git checkout -b update-stax-to-$TAG
           git commit -a -m "Update stax to $TAG"
           git push --set-upstream origin update-stax-to-$TAG

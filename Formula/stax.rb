@@ -10,7 +10,7 @@ class Stax < Formula
     url "https://github.com/TarasMazepa/stax/releases/download/0.9.16/linux-x64.zip"
   else
     depends_on 'dart-lang/dart/dart@3.5.1' => :build
-    url "https://github.com/TarasMazepa/stax.git", tag: '0.9.16'
+    url "https://github.com/TarasMazepa/stax.git", tag: '0.9.17'
   end
 
   def install

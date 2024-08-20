@@ -18,5 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     container: i386/alpine:latest
     steps:
-      - run: echo "hi"
-
+      - uses: Homebrew/actions/setup-homebrew@master
+      - run: |
+          brew install TarasMazepa/stax/stax
+          stax doctor

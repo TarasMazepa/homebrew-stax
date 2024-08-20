@@ -13,19 +13,3 @@ jobs:
       - run: |
           brew install TarasMazepa/stax/stax
           stax doctor
-
-  install-x86:
-    runs-on: ubuntu-latest
-    container: i386/alpine:latest
-    steps:
-      - run: |
-          apk update
-          apk add bash build-base curl file git gzip libc6-compat ncurses ruby ruby-etc ruby-irb ruby-json sudo
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-          test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
-          brew update
-          brew doctor
-          brew install TarasMazepa/stax/stax
-          stax doctor

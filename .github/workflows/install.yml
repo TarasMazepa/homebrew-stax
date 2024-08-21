@@ -7,9 +7,40 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, macos-13]
+        os: [ ubuntu-latest, macos-latest, macos-13 ]
     steps:
       - uses: Homebrew/actions/setup-homebrew@master
       - run: |
           brew install TarasMazepa/stax/stax
+          stax help
+          stax doctor
+
+  install-linux-arm64v8:
+    runs-on: ubuntu-latest
+    container: arm64v8/alpine:latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - run: |
+          brew install TarasMazepa/stax/stax
+          stax help
+          stax doctor
+
+  install-linux-arm32v7:
+    runs-on: ubuntu-latest
+    container: arm32v7/alpine:latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - run: |
+          brew install TarasMazepa/stax/stax
+          stax help
+          stax doctor
+
+  install-linux-arm32v6:
+    runs-on: ubuntu-latest
+    container: arm32v6/alpine:latest
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - run: |
+          brew install TarasMazepa/stax/stax
+          stax help
           stax doctor

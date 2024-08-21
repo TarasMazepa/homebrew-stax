@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     container: arm64v8/alpine:latest
     steps:
-      - uses: Homebrew/actions/setup-homebrew@master
       - run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
           stax doctor
@@ -29,8 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     container: arm32v7/alpine:latest
     steps:
-      - uses: Homebrew/actions/setup-homebrew@master
       - run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
           stax doctor
@@ -39,8 +39,8 @@ jobs:
     runs-on: ubuntu-latest
     container: arm32v6/alpine:latest
     steps:
-      - uses: Homebrew/actions/setup-homebrew@master
       - run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
           stax doctor

@@ -20,6 +20,7 @@ jobs:
     container: arm64v8/alpine:latest
     steps:
       - run: |
+          echo "hi"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
@@ -30,6 +31,7 @@ jobs:
     container: arm32v7/alpine:latest
     steps:
       - run: |
+          echo "hi"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
@@ -40,6 +42,7 @@ jobs:
     container: arm32v6/alpine:latest
     steps:
       - run: |
+          echo "hi"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help

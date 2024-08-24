@@ -27,6 +27,11 @@ jobs:
             --platform linux/arm64/v8 \
             --name container \
             arm64v8/alpine:latest
+          sleep 5s
+          docker ps
+          sleep 5s
+          docker ps
+          sleep 5s
           docker ps
           docker wait container
           docker exec container /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -48,6 +53,11 @@ jobs:
             --platform linux/arm/v7 \
             --name container \
             arm32v7/alpine:latest
+          sleep 5s
+          docker ps
+          sleep 5s
+          docker ps
+          sleep 5s
           docker ps
           docker wait container
           docker exec container /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -69,6 +79,11 @@ jobs:
             --platform linux/arm/v6 \
             --name container \
             arm32v6/alpine:latest
+          sleep 5s
+          docker ps
+          sleep 5s
+          docker ps
+          sleep 5s
           docker ps
           docker wait container
           docker exec container /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

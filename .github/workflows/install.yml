@@ -27,12 +27,12 @@ jobs:
             --platform linux/arm64/v8 \
             arm64v8/alpine:latest \
             uname -a -i
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install TarasMazepa/stax/stax
-          stax help
-          stax doctor
+          docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+          docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          docker exec $(docker ps -q) brew install TarasMazepa/stax/stax
+          docker exec $(docker ps -q) stax help
+          docker exec $(docker ps -q) stax doctor
 
   install-linux-arm32v7:
     runs-on: ubuntu-latest
@@ -46,12 +46,12 @@ jobs:
             --platform linux/arm/v7 \
             arm32v7/alpine:latest \
             uname -a -i
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install TarasMazepa/stax/stax
-          stax help
-          stax doctor
+          docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+          docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          docker exec $(docker ps -q) brew install TarasMazepa/stax/stax
+          docker exec $(docker ps -q) stax help
+          docker exec $(docker ps -q) stax doctor
 
   install-linux-arm32v6:
     runs-on: ubuntu-latest
@@ -65,9 +65,9 @@ jobs:
             --platform linux/arm/v6 \
             arm32v6/alpine:latest \
             uname -a -i
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          brew install TarasMazepa/stax/stax
-          stax help
-          stax doctor
+          docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+          docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          docker exec $(docker ps -q) brew install TarasMazepa/stax/stax
+          docker exec $(docker ps -q) stax help
+          docker exec $(docker ps -q) stax doctor

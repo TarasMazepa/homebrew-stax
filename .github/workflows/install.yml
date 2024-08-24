@@ -27,6 +27,7 @@ jobs:
             --platform linux/arm64/v8 \
             arm64v8/alpine:latest \
             uname -a -i
+          docker ps -q
           docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
           docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -46,6 +47,7 @@ jobs:
             --platform linux/arm/v7 \
             arm32v7/alpine:latest \
             uname -a -i
+          docker ps -q
           docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
           docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -65,6 +67,7 @@ jobs:
             --platform linux/arm/v6 \
             arm32v6/alpine:latest \
             uname -a -i
+          docker ps -q
           docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
           docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

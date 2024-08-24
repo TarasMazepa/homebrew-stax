@@ -68,7 +68,7 @@ jobs:
     steps:
       - uses: docker/setup-qemu-action@v3
       - run: |
-          docker run -d -i --platform linux/arm/v6 arm32v6/alpine:latest
+          docker run -d -i -a stdout --platform linux/arm/v6 arm32v6/alpine:latest
           which docker
           docker version
           docker --version
@@ -82,3 +82,4 @@ jobs:
           docker exec "$container" brew install TarasMazepa/stax/stax
           docker exec "$container" stax help
           docker exec "$container" stax doctor
+          docker stop "$container"

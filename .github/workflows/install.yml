@@ -17,10 +17,18 @@ jobs:
 
   install-linux-arm64v8:
     runs-on: ubuntu-latest
-    container: arm64v8/alpine:latest
     steps:
+      - uses: docker/setup-qemu-action@v3
+      - name: Run in Docker
+        run: |
+          docker run \
+            --rm \
+            -v $(pwd):/${{ github.workspace }} \
+            -w ${{ github.workspace }} \
+            --platform linux/arm64v8 \
+            arm64v8/alpine:latest \
+            uname -a
       - run: |
-          echo "hi"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
@@ -28,10 +36,18 @@ jobs:
 
   install-linux-arm32v7:
     runs-on: ubuntu-latest
-    container: arm32v7/alpine:latest
     steps:
+      - uses: docker/setup-qemu-action@v3
+      - name: Run in Docker
+        run: |
+          docker run \
+            --rm \
+            -v $(pwd):/${{ github.workspace }} \
+            -w ${{ github.workspace }} \
+            --platform linux/arm32v7 \
+            arm32v7/alpine:latest \
+            uname -a
       - run: |
-          echo "hi"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help
@@ -39,10 +55,18 @@ jobs:
 
   install-linux-arm32v6:
     runs-on: ubuntu-latest
-    container: arm32v6/alpine:latest
     steps:
+      - uses: docker/setup-qemu-action@v3
+      - name: Run in Docker
+        run: |
+          docker run \
+            --rm \
+            -v $(pwd):/${{ github.workspace }} \
+            -w ${{ github.workspace }} \
+            --platform linux/arm32v6 \
+            arm32v6/alpine:latest \
+            uname -a
       - run: |
-          echo "hi"
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install TarasMazepa/stax/stax
           stax help

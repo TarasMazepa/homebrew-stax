@@ -21,6 +21,7 @@ jobs:
       - uses: docker/setup-qemu-action@v3
       - run: |
           docker run \
+            -d \
             --rm \
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
@@ -47,6 +48,7 @@ jobs:
       - uses: docker/setup-qemu-action@v3
       - run: |
           docker run \
+            -d \
             --rm \
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
@@ -73,6 +75,7 @@ jobs:
       - uses: docker/setup-qemu-action@v3
       - run: |
           docker run \
+            -d \
             --rm \
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \

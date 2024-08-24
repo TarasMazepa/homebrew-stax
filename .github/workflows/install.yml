@@ -81,6 +81,7 @@ jobs:
           docker --version
           container="$(docker ps -q)"
           echo "container:$container"
+          docker ps
           docker wait "$container"
           docker exec "$container" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           docker exec "$container" (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc

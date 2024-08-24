@@ -81,10 +81,10 @@ jobs:
           docker --version
           container="$(docker ps -q)"
           echo "container:$container"
-          docker wait "$(docker ps -q)"
-          docker exec "$(docker ps -q)" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          docker exec $(docker ps -q) brew install TarasMazepa/stax/stax
-          docker exec $(docker ps -q) stax help
-          docker exec $(docker ps -q) stax doctor
+          docker wait "$container"
+          docker exec "$container" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          docker exec "$container" (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+          docker exec "$container" eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          docker exec "$container" brew install TarasMazepa/stax/stax
+          docker exec "$container" stax help
+          docker exec "$container" stax doctor

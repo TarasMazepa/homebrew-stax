@@ -19,17 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
-      - name: Run in Docker
-        run: |
+      - run: |
           docker run \
             --rm \
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
             --platform linux/arm64/v8 \
             arm64v8/alpine:latest \
-            uname -a
-      - run: |
-          docker attach
+            uname -a -i
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -41,17 +38,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
-      - name: Run in Docker
-        run: |
+      - run: |
           docker run \
             --rm \
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
             --platform linux/arm/v7 \
             arm32v7/alpine:latest \
-            uname -a
-      - run: |
-          docker attach
+            uname -a -i
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -63,17 +57,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
-      - name: Run in Docker
-        run: |
+      - run: |
           docker run \
             --rm \
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
             --platform linux/arm/v6 \
             arm32v6/alpine:latest \
-            uname -a
-      - run: |
-          docker attach
+            uname -a -i
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

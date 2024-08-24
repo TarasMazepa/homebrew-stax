@@ -25,7 +25,7 @@ jobs:
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
             --platform linux/arm64/v8 \
-            --name container uname -a -i \
+            --name container -a -i \
             arm64v8/alpine:latest
           docker wait container
           docker exec container /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -45,7 +45,7 @@ jobs:
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
             --platform linux/arm/v7 \
-            --name container uname -a -i \
+            --name container -a -i \
             arm32v7/alpine:latest
           docker wait container
           docker exec container /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -65,7 +65,7 @@ jobs:
             -v $(pwd):/${{ github.workspace }} \
             -w ${{ github.workspace }} \
             --platform linux/arm/v6 \
-            --name container uname -a -i \
+            --name container -a -i \
             arm32v6/alpine:latest
           docker wait container
           docker exec container /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

@@ -68,7 +68,7 @@ jobs:
     steps:
       - uses: docker/setup-qemu-action@v3
       - run: |
-          docker run -d --platform linux/arm/v6 arm32v6/alpine:latest
+          docker run -d -i --platform linux/arm/v6 arm32v6/alpine:latest
           which docker
           docker version
           docker --version

@@ -19,49 +19,57 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
-      - run: |
-          docker run \
-            -d \
-            --rm \
-            -v $(pwd):/${{ github.workspace }} \
-            -w ${{ github.workspace }} \
-            --platform linux/arm64/v8 \
-            --name container \
-            arm64v8/alpine:latest
-          which docker
-          docker version
-          docker --version
-          docker wait $(docker ps -q)
-          docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          docker exec $(docker ps -q) brew install TarasMazepa/stax/stax
-          docker exec $(docker ps -q) stax help
-          docker exec $(docker ps -q) stax doctor
+      - run: docker run -d -i --platform linux/arm64/v8 arm64v8/alpine:latest
+      - run: which docker
+      - run: docker version
+      - run: docker --version
+      - run: container="$(docker ps -q)"
+      - run: echo "container:$container"
+      - run: docker ps
+      - run: docker wait "$(docker ps -q)"
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" brew install TarasMazepa/stax/stax
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" stax help
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" stax doctor
+      - run: docker logs "$(docker ps -q)"
+      - run: docker stop "$(docker ps -q)"
+      - run: docker logs "$(docker ps -q)"
 
   install-linux-arm32v7:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
-      - run: |
-          docker run \
-            -d \
-            --rm \
-            -v $(pwd):/${{ github.workspace }} \
-            -w ${{ github.workspace }} \
-            --platform linux/arm/v7 \
-            --name container \
-            arm32v7/alpine:latest
-          which docker
-          docker version
-          docker --version
-          docker wait $(docker ps -q)
-          docker exec $(docker ps -q) /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          docker exec $(docker ps -q) (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
-          docker exec $(docker ps -q) eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          docker exec $(docker ps -q) brew install TarasMazepa/stax/stax
-          docker exec $(docker ps -q) stax help
-          docker exec $(docker ps -q) stax doctor
+      - run: docker run -d -i --platform linux/arm/v7 arm32v7/alpine:latest
+      - run: which docker
+      - run: docker version
+      - run: docker --version
+      - run: container="$(docker ps -q)"
+      - run: echo "container:$container"
+      - run: docker ps
+      - run: docker wait "$(docker ps -q)"
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" brew install TarasMazepa/stax/stax
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" stax help
+      - run: docker logs "$(docker ps -q)"
+      - run: docker exec "$(docker ps -q)" stax doctor
+      - run: docker logs "$(docker ps -q)"
+      - run: docker stop "$(docker ps -q)"
+      - run: docker logs "$(docker ps -q)"
 
   install-linux-arm32v6:
     runs-on: ubuntu-latest

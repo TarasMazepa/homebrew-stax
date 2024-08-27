@@ -5,13 +5,13 @@ class Stax < Formula
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/TarasMazepa/stax/releases/download/0.9.20/macos-x64.zip"
-    sha256 '0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5' # macos-x64
+    sha256 '85024b3420d5acddba0aea2b564506424fc629fc9423856efa2d7127336d3c6e' # macos-x64
   elsif OS.mac? && Hardware::CPU.arm?
     url "https://github.com/TarasMazepa/stax/releases/download/0.9.20/macos-arm.zip"
-    sha256 '0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5' # macos-arm
+    sha256 '90c08d5f4d4bd6c6e8630e5ab8ce4bcf19317a332b60bdc1f3c02baa5652d718' # macos-arm
   elsif OS.linux? && Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
     url "https://github.com/TarasMazepa/stax/releases/download/0.9.20/linux-x64.zip"
-    sha256 '0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5' # linux-x64
+    sha256 'e9e60d8ca8b1029ccc1b94bf5051dcee805b84ecd5dfd76d93d76013a910c01c' # linux-x64
   else
     depends_on 'dart-lang/dart/dart@3.5.1' => :build
     url "https://github.com/TarasMazepa/stax.git", tag: '0.9.20'

@@ -20,15 +20,3 @@ jobs:
     steps:
       - uses: docker/setup-qemu-action@v3
       - run: docker run -d -i --platform linux/arm64/v8 arm64v8/alpine:latest
-
-  install-linux-arm32v7:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: docker/setup-qemu-action@v3
-      - run: docker run -d -i --platform linux/arm/v7 arm32v7/alpine:latest
-
-  install-linux-arm32v6:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: docker/setup-qemu-action@v3
-      - run: docker run -d -i --platform linux/arm/v6 arm32v6/alpine:latest

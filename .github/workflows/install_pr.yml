@@ -1,0 +1,21 @@
+on:
+  pull_request:
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, macos-13 ]
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - run: |
+          brew install --build-from-source Formula/stax.rb
+          stax help
+          stax doctor
+
+  install-linux-arm64v8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - run: docker run -d -i --platform linux/arm64/v8 arm64v8/alpine:latest

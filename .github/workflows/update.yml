@@ -7,6 +7,10 @@ on:
       dart_sdk_version:
         required: false
         type: string
+  push:
+    branches: [ "main" ]
+    paths:
+      VERSION
 
 env:
   TAG: ${{ inputs.tag }}

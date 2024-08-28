@@ -32,9 +32,10 @@ jobs:
           brew tap dart-lang/dart
           brew info dart-lang/dart/dart@$DART_SDK_VERSION
           sed -i "s+'dart-lang/dart/dart@.*'+'dart-lang/dart/dart@$DART_SDK_VERSION'+" ./Formula/stax.rb
-          git checkout -b update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
+          branch_name=update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION-$RANDOM
+          git checkout -b $branch_name
           git commit -a -m "Update dart sdk version for stax to $DART_SDK_VERSION"
-          git push --set-upstream origin update-dart-sdk-version-for-stax-to-$DART_SDK_VERSION
+          git push --set-upstream origin $branch_name
           gh pr merge $(gh pr create -B main -f) --auto --squash
           git checkout HEAD~
         env:
@@ -51,9 +52,10 @@ jobs:
           update_checksum "macos-x64"
           update_checksum "macos-arm"
           update_checksum "linux-x64"
-          git checkout -b update-stax-to-$TAG
+          branch_name=update-stax-to-$TAG-$RANDOM
+          git checkout -b $branch_name
           git commit -a -m "Update stax to $TAG"
-          git push --set-upstream origin update-stax-to-$TAG
+          git push --set-upstream origin $branch_name
           gh pr merge $(gh pr create -B main -f) --auto --squash
           git checkout HEAD~
         env:

@@ -13,7 +13,7 @@ class Stax < Formula
     url "https://github.com/TarasMazepa/stax/releases/download/0.9.29/linux-x64.zip"
     sha256 '3d8c66c522ec09cba69eba266cb8504ae4e2c77fe62aba575b46296272d5932f' # linux-x64
   else
-    depends_on 'dart-lang/dart/dart@3.5.2' => :build
+    depends_on 'dart-lang/dart/dart@3.5.1' => :build
     url "https://github.com/TarasMazepa/stax.git", tag: '0.9.29'
   end
 

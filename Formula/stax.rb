@@ -1,20 +1,20 @@
 class Stax < Formula
   desc "Stack your PRs with stax"
   homepage "https://staxforgit.com/"
-  version '0.9.30'
+  version '0.9.31'
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/TarasMazepa/stax/releases/download/0.9.30/macos-x64.zip"
-    sha256 'c1b54a5a5523c5583bf562d74c2aec10185978457e5d76f02ee47a0088daccf4' # macos-x64
+    url "https://github.com/TarasMazepa/stax/releases/download/0.9.31/macos-x64.zip"
+    sha256 '6d8e0c0968ab6463ce1244864cae62fd22d4caa6600319547ddb0fef69a7d6c8' # macos-x64
   elsif OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/TarasMazepa/stax/releases/download/0.9.30/macos-arm.zip"
-    sha256 'fc2f0335c7b64f7d0aa51173b3b19fa309012d4d72f3238dfbd7e0f73d0f2b6f' # macos-arm
+    url "https://github.com/TarasMazepa/stax/releases/download/0.9.31/macos-arm.zip"
+    sha256 'd4c19acb24f55f3f80d7d67c5e5eb2719d26c9fb388702acc244840f14598d18' # macos-arm
   elsif OS.linux? && Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-    url "https://github.com/TarasMazepa/stax/releases/download/0.9.30/linux-x64.zip"
-    sha256 'bd10e61f88b6384935dee04c20437865e1dd89679ca352d68e28f915106284d6' # linux-x64
+    url "https://github.com/TarasMazepa/stax/releases/download/0.9.31/linux-x64.zip"
+    sha256 '4761ff7b4fb6db7778f32c8081e7763d7aab2e75aaec1cd1a2b930ae991fb7f6' # linux-x64
   else
     depends_on 'dart-lang/dart/dart@3.5.3' => :build
-    url "https://github.com/TarasMazepa/stax.git", tag: '0.9.30'
+    url "https://github.com/TarasMazepa/stax.git", tag: '0.9.31'
   end
 
   def install

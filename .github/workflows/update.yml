@@ -24,7 +24,8 @@ jobs:
       - run: |
           git config --global user.name 'stax'
           git config --global user.email 'stax@staxforgit.com'
-      - if: "${{ github.event.inputs.dart_sdk_version != '' }}"
+      - name: Update dart version
+        if: "${{ github.event.inputs.dart_sdk_version != '' }}"
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/runner/.bashrc
@@ -42,7 +43,8 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.PAT }}
-      - if: "${{ github.event.inputs.tag != '' }}"
+      - name: Update stax version
+        if: "${{ github.event.inputs.tag != '' }}"
         run: |
           sed -i "s/version '.*'/version '$TAG'/" ./Formula/stax.rb
           sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb

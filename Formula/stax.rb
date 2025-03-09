@@ -22,10 +22,13 @@ class Stax < Formula
       cd "cli" do
         system "dart", "pub", "get"
         system "dart", "compile", "exe", "bin/cli.dart", "-o", "stax", "-Dversion=#{version}"
+        system "dart", "compile", "exe", "bin/stax_daemon.dart", "-o", "stax-daemon", "-Dversion=#{version}"
         bin.install "stax"
+        bin.install "stax-daemon"
       end
     else
       bin.install "stax"
+      bin.install "stax-daemon"
     end
   end
 

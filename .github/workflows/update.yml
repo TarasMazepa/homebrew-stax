@@ -57,6 +57,8 @@ jobs:
           update_checksum "macos-arm"
           update_checksum "linux-x64"
           cp ./Formula/stax.rb ./Formula/stax@$TAG.rb
+          CLEAN_TAG="$(echo $TAG | sed 's/[^a-zA-Z0-9]//g')"
+          sed -i "s/class Stax < Formula/class StaxAT$CLEAN_TAG < Formula/" ./Formula/stax@$TAG.rb
           git add .
           branch_name=update-stax-to-$TAG-$RANDOM
           git checkout -b $branch_name

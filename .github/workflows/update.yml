@@ -56,11 +56,12 @@ jobs:
           update_checksum "macos-x64"
           update_checksum "macos-arm"
           update_checksum "linux-x64"
+          cp ./Formula/stax.rb ./Formula/stax@$TAG.rb
+          git add .
           branch_name=update-stax-to-$TAG-$RANDOM
           git checkout -b $branch_name
-          git commit -a -m "Update stax to $TAG"
+          git commit -m "Update stax to $TAG"
           git push --set-upstream origin $branch_name
           gh pr merge $(gh pr create -B main -f) --auto --squash
-          git checkout HEAD~
         env:
           GH_TOKEN: ${{ secrets.PAT }}

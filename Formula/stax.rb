@@ -4,17 +4,17 @@ class Stax < Formula
   version '0.9.49'
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/TarasMazepa/stax/releases/download/0.9.49/macos-x64.zip"
+    url "https://github.com/TarasMazepa/stax/releases/download/#{version}/macos-x64.zip"
     sha256 '6e8ab29b666fe12aea0f345d0a3869201eeffda337ccee48a035b96c65a3d384' # macos-x64
   elsif OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/TarasMazepa/stax/releases/download/0.9.49/macos-arm.zip"
+    url "https://github.com/TarasMazepa/stax/releases/download/#{version}/macos-arm.zip"
     sha256 '45eb4cee10546e3bd25f862fbfad1a2ff1f42b20e8e23b78542391ed1732a49d' # macos-arm
   elsif OS.linux? && Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-    url "https://github.com/TarasMazepa/stax/releases/download/0.9.49/linux-x64.zip"
+    url "https://github.com/TarasMazepa/stax/releases/download/#{version}/linux-x64.zip"
     sha256 '325e22f1040008923c681c9d539bde7c329fe15e6cde1ba8235401318e2dc120' # linux-x64
   else
     depends_on 'dart-lang/dart/dart@3.7.2' => :build
-    url "https://github.com/TarasMazepa/stax.git", tag: '0.9.49'
+    url "https://github.com/TarasMazepa/stax.git", tag: "#{version}"
   end
 
   def install

@@ -47,8 +47,6 @@ jobs:
         if: "${{ github.event.inputs.tag != '' }}"
         run: |
           sed -i "s/version '.*'/version '$TAG'/" ./Formula/stax.rb
-          sed -i "s/tag: .*/tag: '$TAG'/" ./Formula/stax.rb
-          sed -i "s+/download/[^/]*/+/download/$TAG/+" ./Formula/stax.rb
           update_checksum () {
             checksum=$(curl -sL https://github.com/TarasMazepa/stax/releases/download/$TAG/$1.zip  | sha256sum | sed 's/  -//')
             sed -i "s+sha256.*$1+sha256 '$checksum' # $1+" ./Formula/stax.rb
@@ -60,7 +58,7 @@ jobs:
           CLEAN_TAG="$(echo $TAG | sed 's/[^a-zA-Z0-9]//g')"
           sed -i "s/class Stax < Formula/class StaxAT$CLEAN_TAG < Formula/" ./Formula/stax@$TAG.rb
           git add .
-          branch_name=update-stax-to-$TAG-$RANDOM
+          branch_name=update-stax-to-$TAG-$(date -u +"%Y-%m-%dT%H-%M-%S")
           git checkout -b $branch_name
           git commit -m "Update stax to $TAG"
           git push --set-upstream origin $branch_name

@@ -15,6 +15,7 @@ jobs:
           brew install --build-from-source Formula/stax.rb
           stax help
           stax doctor
+          stax version
 
   install-from-source-linux-arm64v8:
     runs-on: ubuntu-latest

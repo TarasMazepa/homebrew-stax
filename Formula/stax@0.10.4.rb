@@ -1,4 +1,4 @@
-class Stax < Formula
+class StaxAT0104 < Formula
   desc "Stack your PRs with stax"
   homepage "https://staxforgit.com/"
   version '0.10.4'

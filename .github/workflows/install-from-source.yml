@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: Homebrew/actions/setup-homebrew@master
       - run: |
-          brew install --build-from-source Formula/stax.rb
+          brew install --build-from-source ./Formula/stax.rb
           stax help
           stax doctor
           stax version

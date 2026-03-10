@@ -3,10 +3,7 @@ class Stax < Formula
   homepage "https://staxforgit.com/"
   version '0.10.28'
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/TarasMazepa/stax/releases/download/#{version}/macos-x64.zip"
-    sha256 '0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5' # macos-x64
-  elsif OS.mac? && Hardware::CPU.arm?
+  if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/TarasMazepa/stax/releases/download/#{version}/macos-arm.zip"
     sha256 '297b49f3dfe09ae5a0e3b758018efc38fb3fef3294a9c9b613418f2c5254abd3' # macos-arm
   elsif OS.linux? && Hardware::CPU.intel? && Hardware::CPU.is_64_bit?

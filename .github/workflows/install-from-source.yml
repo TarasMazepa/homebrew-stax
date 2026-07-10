@@ -1,3 +1,5 @@
+name: install-from-source.yml
+
 on:
   push:
     branches: [ "main" ]

@@ -14,12 +14,10 @@ jobs:
     steps:
       - uses: Homebrew/actions/setup-homebrew@main
       - run: |
-          brew install --build-from-source ./Formula/stax.rb
+          brew install --build-from-source TarasMazepa/stax/stax
           stax help
           stax doctor
           stax version
-        env:
-          HOMEBREW_DEVELOPER: true
 
   install-from-source-linux-arm64v8:
     runs-on: ubuntu-latest
